@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to create-nextjs-project 👋</h1>
 <p>
-  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
+  <img alt="GitHub package.json version" src="https://img.shields.io/github/package-json/v/JuzouSatoru2/create-nextjs-project">
   <a href="https://github.com/JuzouSatoru2/create-nextjs-project#readme" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
   </a>

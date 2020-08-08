@@ -1,6 +1,6 @@
 {
   "name": "create-nextjs-project",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI to clone my NextJs app template",
   "main": "index.js",
   "bin": {
