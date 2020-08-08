@@ -21,20 +21,19 @@ console.log(chalk.blue('Create NextJs project'));
 
 let appName = 'NextJs-Boilerplate';
 
-if (process.argv[2] && process.argv[2].match('/[<>:"/\\|?*\x00-\x1F]/"]')) {
-  appName = process.argv[2];
-}
-
 console.log(chalk.yellow('Cloning template...'));
-shell.exec(`git clone https://github.com/JuzouSatoru2/NextJs-Boilerplate.git ${appName}`, {
+shell.exec('git clone https://github.com/JuzouSatoru2/NextJs-Boilerplate.git', {
   silent: true,
 });
+if (process.argv[2]) {
+  appName = process.argv[2];
+  shell.mv('NextJs-Boilerplate', appName);
+}
+shell.cd(appName);
 shell.rm('-rf', '.git');
 shell.exec('git init', { silent: true });
 
-
 console.log(chalk.yellow('Installing Dependencies...'));
-shell.cd(appName);
 shell.exec('npm install', { silent: false });
 
 console.log(chalk.green('Success'));
