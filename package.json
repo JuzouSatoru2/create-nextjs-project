@@ -1,0 +1,35 @@
+{
+  "name": "create-nextjs-project",
+  "version": "1.0.0",
+  "description": "CLI to clone my NextJs app template",
+  "main": "index.js",
+  "bin": {
+    "create-nextjs-project": "./index.js"
+  },
+  "homepage": "https://github.com/JuzouSatoru2/create-nextjs-project#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JuzouSatoru2/create-nextjs-project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JuzouSatoru2/create-nextjs-project/issues"
+  },
+  "engines": {
+    "npm": ">=6.13.7",
+    "node": ">=10.14.2"
+  },
+  "keywords": [
+    "NextJs",
+    "CLI",
+    "template"
+  ],
+  "author": "JuzouSatoru2",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "clear": "^0.1.0",
+    "clui": "^0.3.6",
+    "figlet": "^1.5.0",
+    "shelljs": "^0.8.4"
+  }
+}
