@@ -5,7 +5,7 @@ const clear = require('clear');
 const figlet = require('figlet');
 
 if (process.argv[2] === '--version' || process.argv[2] === '-v') {
-  console.log('v1.0.0');
+  console.log('v' + require('./package.json').version);
   process.exit(0);
 }
 
@@ -21,17 +21,17 @@ console.log(chalk.blue('Create NextJs project'));
 
 let appName = 'NextJs-Boilerplate';
 
+if (process.argv[2] && process.argv[2].match('/[<>:"/\\|?*\x00-\x1F]/"]')) {
+  appName = process.argv[2];
+}
+
 console.log(chalk.yellow('Cloning template...'));
-shell.exec('git clone https://github.com/JuzouSatoru2/NextJs-Boilerplate.git', {
+shell.exec(`git clone https://github.com/JuzouSatoru2/NextJs-Boilerplate.git ${appName}`, {
   silent: true,
 });
 shell.rm('-rf', '.git');
 shell.exec('git init', { silent: true });
 
-if (process.argv[2] && process.argv[2].match('/[<>:"/\\|?*\x00-\x1F]/"]')) {
-  appName = process.argv[2];
-  shell.mv('NextJs-Boilerplate', appName);
-}
 
 console.log(chalk.yellow('Installing Dependencies...'));
 shell.cd(appName);
