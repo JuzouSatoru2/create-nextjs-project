@@ -12,8 +12,9 @@
   </a>
 </p>
 
-> CLI to clone my NextJs app template
-> Boilerplate Repo can be found [here](https://github.com/JuzouSatoru2/NextJs-Boilerplate)
+> CLI to clone my NextJs app template.
+
+> Boilerplate Repo can be found [here](https://github.com/JuzouSatoru2/NextJs-Boilerplate).
 
 ### 🏠 [Homepage](https://github.com/JuzouSatoru2/create-nextjs-project#readme)
 
