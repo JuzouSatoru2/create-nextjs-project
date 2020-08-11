@@ -34,12 +34,6 @@ npx create-nextjs-project [optional:Folder name]
 create-nextjs-project [optional:Folder name]
 ```
 
-## Todo
-
-> Feel free to help improve this project
-
-- Adding a spinner
-
 ## Author
 
 👤 **JuzouSatoru2**
