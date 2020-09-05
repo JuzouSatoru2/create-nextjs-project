@@ -6,6 +6,9 @@
   "bin": {
     "create-nextjs-project": "./index.js"
   },
+  "files": [
+    "index.js"
+  ],
   "homepage": "https://github.com/JuzouSatoru2/create-nextjs-project#readme",
   "repository": {
     "type": "git",

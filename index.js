@@ -5,8 +5,8 @@ const clear = require('clear');
 const figlet = require('figlet');
 const ora = require('ora');
 
-const spinner = ora({ spinner: 'dots', isEnabled: true });
-const spinner2 = ora({ spinner: 'dots', isEnabled: true });
+const spinner = ora();
+const spinner2 = ora();
 
 let appName = 'NextJs-Boilerplate';
 
@@ -20,19 +20,19 @@ if (!shell.which('git')) {
   process.exit(1);
 }
 
-async function run() {
+function run() {
   clear();
 
   console.log(chalk.blue(figlet.textSync('CNA', { horizontalLayout: 'full' })));
   console.log(chalk.blue('Create NextJs project'));
 
   spinner.start('Cloning template...');
-  await clone();
-  spinner.succeed('Cloned succesfully');
+  clone();
+  spinner.succeed('Cloned successfully');
 
   spinner2.start('Installing dependencies...');
-  await install();
-  spinner2.succeed('Installed succesfully');
+  install();
+  spinner2.succeed('Installed successfully');
 
   console.log(chalk.green('Success'));
   console.log('');
@@ -48,29 +48,23 @@ async function run() {
 }
 
 function clone() {
-  return new Promise((resolve, reject) => {
-    shell.exec(
-      'git clone https://github.com/JuzouSatoru2/NextJs-Boilerplate.git',
-      {
-        silent: true,
-      }
-    );
-    if (process.argv[2]) {
-      appName = process.argv[2];
-      shell.mv('NextJs-Boilerplate', appName);
+  shell.exec(
+    'git clone https://github.com/JuzouSatoru2/NextJs-Boilerplate.git',
+    {
+      silent: true,
     }
-    shell.cd(appName);
-    shell.rm('-rf', '.git');
-    shell.exec('git init', { silent: true });
-    resolve();
-  });
+  );
+  if (process.argv[2]) {
+    appName = process.argv[2];
+    shell.mv('NextJs-Boilerplate', appName);
+  }
+  shell.cd(appName);
+  shell.rm('-rf', '.git');
+  shell.exec('git init', { silent: true });
 }
 
 function install() {
-  return new Promise((resolve, reject) => {
-    shell.exec('npm install', { silent: false });
-    resolve();
-  });
+  shell.exec('npm install', { silent: false });
 }
 
 run();
