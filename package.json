@@ -1,6 +1,6 @@
 {
   "name": "create-nextjs-project",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "CLI to clone my NextJs app template",
   "main": "index.js",
   "bin": {
@@ -27,13 +27,5 @@
     "template"
   ],
   "author": "JuzouSatoru2",
-  "license": "MIT",
-  "dependencies": {
-    "chalk": "^4.1.0",
-    "clear": "^0.1.0",
-    "clui": "^0.3.6",
-    "figlet": "^1.5.0",
-    "ora": "^5.2.0",
-    "shelljs": "^0.8.4"
-  }
+  "license": "MIT"
 }

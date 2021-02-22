@@ -14,8 +14,9 @@
 
 > CLI to clone my NextJs app template.
 
-> Boilerplate Repo can be found [here](https://github.com/JuzouSatoru2/NextJs-Boilerplate).
+Boilerplate Repo can be found [here](https://github.com/JuzouSatoru2/NextJs-Boilerplate).
 
+Inspired by [w3cj](https://github.com/w3cj/create-express-api)
 ### 🏠 [Homepage](https://github.com/JuzouSatoru2/create-nextjs-project#readme)
 
 ## Install
@@ -24,7 +25,7 @@
 ```sh
 npm i -g create-nextjs-project
 Or
-npx create-nextjs-project [optional:Folder name]
+npx create-nextjs-project [App name]
 ```
 
 ## Usage
@@ -32,7 +33,7 @@ npx create-nextjs-project [optional:Folder name]
 > The installation of the dependencies could take some time. Don't worry and just wait.
 
 ```sh
-create-nextjs-project [optional:Folder name]
+create-nextjs-project [App name]
 ```
 
 ## Author

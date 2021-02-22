@@ -1,70 +1,51 @@
 #! /usr/bin/env node
-const shell = require('shelljs');
-const chalk = require('chalk');
-const clear = require('clear');
-const figlet = require('figlet');
-const ora = require('ora');
-
-const spinner = ora();
-const spinner2 = ora();
-
-let appName = 'NextJs-Boilerplate';
+const { spawn } = require('child_process');
 
 if (process.argv[2] === '--version' || process.argv[2] === '-v') {
   console.log('v' + require('./package.json').version);
   process.exit(0);
 }
 
-if (!shell.which('git')) {
-  console.error('This CLI requires git to work!');
-  process.exit(1);
+const name = process.argv[2];
+if (!name || name.match(/[<>:"\/\\|?*\x00-\x1F]/)) {
+  return console.log(`
+  \u001b[31;1mInvalid directory name.
+  Usage: create-nextjs-project name-of-app\u001b[0m
+`);
 }
 
-function run() {
-  clear();
+const repoURL = 'https://github.com/JuzouSatoru2/NextJs-Boilerplate';
 
-  console.log(chalk.blue(figlet.textSync('CNA', { horizontalLayout: 'full' })));
-  console.log(chalk.blue('Create NextJs project'));
+runCommand('git', ['clone', repoURL, name])
+  .then(() => {
+    return runCommand('rm', ['-rf', `${name}/.git`]);
+  }).then(() => {
+    console.log('Installing dependencies...');
+    return runCommand('yarn', ['install'], {
+      cwd: process.cwd() + '/' + name
+    });
+  }).then(() => {
+    console.log('\u001b[32;1m✔ Installed successfully!\u001b[0m');
+    console.log('');
+    console.log('To get started:');
+    console.log('cd', name);
+    console.log('yarn dev');
+  });
 
-  spinner.start('Cloning template...');
-  clone();
-  spinner.succeed('Cloned successfully');
+function runCommand(command, args, options = undefined) {
+  const spawned = spawn(command, args, options);
 
-  spinner2.start('Installing dependencies...');
-  install();
-  spinner2.succeed('Installed successfully');
-
-  console.log(chalk.green('Success'));
-  console.log('');
-  console.log(chalk.blue('Thanks for using this CLI and template'));
-  console.log(
-    chalk.blue(
-      'For help or information go to our github repo JuouSatoru2/create-nextjs-app'
-    )
-  );
-  console.log('');
-  console.log(chalk.blue('To get started:'));
-  console.log(chalk.blue(`cd ${appName} + npm run dev`));
+  return new Promise((resolve) => {
+    spawned.stdout.on('data', (data) => {
+      console.log(data.toString());
+    });
+    
+    spawned.stderr.on('data', (data) => {
+      console.error(data.toString());
+    });
+    
+    spawned.on('close', () => {
+      resolve();
+    });
+  });
 }
-
-function clone() {
-  shell.exec(
-    'git clone https://github.com/JuzouSatoru2/NextJs-Boilerplate.git',
-    {
-      silent: true,
-    }
-  );
-  if (process.argv[2]) {
-    appName = process.argv[2];
-    shell.mv('NextJs-Boilerplate', appName);
-  }
-  shell.cd(appName);
-  shell.rm('-rf', '.git');
-  shell.exec('git init', { silent: true });
-}
-
-function install() {
-  shell.exec('npm install', { silent: false });
-}
-
-run();
