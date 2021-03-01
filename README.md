@@ -40,7 +40,6 @@ create-nextjs-project [App name]
 
 👤 **JuzouSatoru2**
 
-* Website: juzousatoru2.github.io
 * Github: [@JuzouSatoru2](https://github.com/JuzouSatoru2)
 
 ## 🤝 Contributing
@@ -53,8 +52,8 @@ Give a ⭐️ if this project helped you!
 
 ## 📝 License
 
-Copyright © 2020 [JuzouSatoru2](https://github.com/JuzouSatoru2).<br />
-This project is [MIT](https://github.com/JuzouSatoru2/create-nextjs-project/blob/master/LICENSE) licensed.
+Copyright © 2021 [JuzouSatoru2](https://github.com/JuzouSatoru2).<br />
+This project is [MIT](https://github.com/JuzouSatoru2/create-nextjs-project/blob/main/LICENSE) licensed.
 
 ***
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
